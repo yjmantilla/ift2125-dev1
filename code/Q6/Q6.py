@@ -69,26 +69,30 @@ def find_kth_smallest(nums1, nums2, k):
         return min(nums1[0], nums2[0])  # k=1 means smallest element
     
     # Get the k//2-th element from each list, if it exists
-    # If the list has fewer than k//2 elements, we set mid to infinity (inf) to effectively ignore it
+    # If the list has fewer than k//2 elements, we set mid to infinity (inf)
+    # to effectively ignore it
     mid1 = nums1[k//2 - 1] if len(nums1) >= k//2 else float('inf')  # k is 1-based
     mid2 = nums2[k//2 - 1] if len(nums2) >= k//2 else float('inf')  # k is 1-based
     #print('Middle values:', mid1, mid2)
 
     # Remove k//2 elements from the list with the smaller mid value
-    # Why? Because we know that the k-th smallest element **cannot** be in the first k//2 elements of this array.
+    # Why? Because we know that the k-th smallest element **cannot** be 
+    # in the first k//2 elements of this array.
     # This is because:
     # - The k-th smallest element is greater than at least k//2 elements overall.
-    # - If mid1 < mid2, then mid1 and all elements before it in nums1 are too small to be the k-th smallest element.
+    # - If mid1 < mid2, then mid1 and all elements before it in nums1 are too small 
+    #   to be the k-th smallest element.
     
     if mid1 < mid2:
         # Remove the first k//2 elements from nums1
         # The total number of elements to consider is reduced by k//2
-        # We now look for the (k - k//2)-th smallest element in the remaining part of nums1 and full nums2
+        # We now look for the (k - k//2)-th smallest element in the 
+        # remaining part of nums1 and full nums2
         return find_kth_smallest(nums1[k//2:], nums2, k - k//2)  
     else:
         # Remove the first k//2 elements from nums2
         # Similarly, we now look for the (k - k//2)-th smallest element
-        return find_kth_smallest(nums1, nums2[k//2:], k - k//2)  
+        return find_kth_smallest(nums1, nums2[k//2:], k - k//2)
 
 def divide_and_conquer(nums1, nums2):
     # Intuition:
@@ -110,7 +114,8 @@ def divide_and_conquer(nums1, nums2):
     #   0. Suppose you are looking for the k-th smallest element.
     #   1. Compare the k//2-th element in each array.
     #   2. Remove the first k//2 elements from the array with the smaller k//2-th element.
-    #      We can ignore these elements as the k-th element you are looking for is greater than k//2 elements in that array.
+    #      We can ignore these elements as the k-th element you are looking for 
+    #      is greater than k//2 elements in that array.
     #   3. Repeat this logic until k=1 (base case).
 
     total_len = len(nums1) + len(nums2)  # Compute total length of both arrays
@@ -119,13 +124,14 @@ def divide_and_conquer(nums1, nums2):
     # If the total length is odd, return the middle element
     if total_len % 2 == 1:
         #print('Odd Case')
-        return find_kth_smallest(nums1, nums2, total_len // 2 + 1)  # k is 1-based, so the middle element is at k//2 + 1
+        return find_kth_smallest(nums1, nums2, total_len // 2 + 1)  
+        # k is 1-based, so the middle element is at k//2 + 1
     
     # If the total length is even, return the average of the two middle elements
     else:
         #print('Even Case')
         right = find_kth_smallest(nums1, nums2, total_len // 2 + 1)  # Right median
-        left = find_kth_smallest(nums1, nums2, total_len // 2)  # Left median , (the one before the right median)
+        left = find_kth_smallest(nums1, nums2, total_len // 2)  # Left median, (the one before)
         return (left + right) / 2  # Compute the average
 
 # Fonction à compléter / function to complete:

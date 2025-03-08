@@ -33,7 +33,4 @@ bool CareerCalculator::CalculateMaxCareer(const vector<int>& Steps) {
     }
     
     return false; // If loop completes without reaching the last square, return false
-
-
-    return false;
 }

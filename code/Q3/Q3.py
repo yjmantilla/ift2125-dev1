@@ -9,7 +9,7 @@ import sys
 
 
 def get_median(numbers):
-    print(numbers)
+    #print(numbers)
     n = len(numbers) # len is in O(1) time in the python list implementation
     if n == 0:
         return None

@@ -6,6 +6,7 @@
 // can be modified if you wish to add other methods to the class
 
 class CareerCalculator{
+    // Student: Yorguin José Mantilla Ramos - 20253616
     public :
         CareerCalculator();
         bool CalculateMaxCareer(const std::vector<int>& Steps);

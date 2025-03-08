@@ -1,4 +1,6 @@
-# Nom(s) étudiant(s) / Name(s) of student(s): Yorguin José Mantilla Ramos
+# Nom(s) étudiant(s) / Name(s) of student(s):
+# Student: Yorguin José Mantilla Ramos - 20253616
+
 
 import sys
 
@@ -45,7 +47,7 @@ def solve(numbers):
     median = get_median(numbers)
 
     # Find pairs using two pointer technique in O(n) time given that the list is ALREADY sorted
-    # The idea is that in a single run we scan from the beginning and end of the list with two pointers
+    # The idea is that in a single transversal of the list we scan from the beginning and end of the list with two pointers
     # and check if the sum of the two numbers is equal to the target sum
 
     return get_pairs_two_pointers(numbers, median)

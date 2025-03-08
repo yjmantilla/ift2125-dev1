@@ -6,6 +6,7 @@
 // can be modified if you wish to add other methods to the class
 
 class MaxToysCalculator{
+    // Student: Yorguin José Mantilla Ramos - 20253616
     public :
         MaxToysCalculator();
         int CalculateMaxToys(const std::vector<int>& arr, int S);

@@ -10,14 +10,16 @@ import sys
 
 def get_median(numbers):
     print(numbers)
-    n = len(numbers)
+    n = len(numbers) # len is in O(1) time in the python list implementation
+    if n == 0:
+        return None
     if n % 2 == 0:
         return (numbers[n//2-1] + numbers[n//2]) / 2
     else:
         return numbers[n//2]
 
 def get_pairs_two_pointers(arr, target):
-    left, right = 0, len(arr) - 1
+    left, right = 0, len(arr) - 1 # len is in O(1) time in the python list implementation
     count = 0
     pairs=[]
 
@@ -45,7 +47,8 @@ def get_pairs_two_pointers(arr, target):
 # Fonction à compléter / function to complete:
 def solve(numbers):
     median = get_median(numbers)
-
+    if median is None:
+        return False
     # Find pairs using two pointer technique in O(n) time given that the list is ALREADY sorted
     # The idea is that in a single transversal of the list we scan from the beginning and end of the list with two pointers
     # and check if the sum of the two numbers is equal to the target sum
